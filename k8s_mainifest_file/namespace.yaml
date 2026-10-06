@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   name: three-tier
   labels: 
-    app: frontend
+    app: blog
         
