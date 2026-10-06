@@ -14,7 +14,7 @@ spec:
     template:
       metadata:
         labels:
-          app: database 
+          app: database
     spec:
       containers:
         - name: blog-db-contianer
