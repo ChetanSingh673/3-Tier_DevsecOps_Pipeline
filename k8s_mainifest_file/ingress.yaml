@@ -5,12 +5,12 @@ metadata:
   namespace: three-tier 
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
-    
+    alb.ingress.kubernetes.io/load-balancer-name: blog-alb
     # Target type and Listener Port
 
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetess.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
-    alb.ingress.kubernetes.io/certificate-arn:   # Replace with your ACM certificate ARN
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:607416643673:certificate/bef602df-583d-4388-b2ac-bf3e69017c73   # Replace with your ACM certificate ARN
     alb-ingress.kubernetes.io/ssl-redirect: '443'
 
 spec:
