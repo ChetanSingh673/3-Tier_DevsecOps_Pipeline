@@ -13,14 +13,14 @@ spec:
   selector:
     matchLabels:
       app: frontend
-    template:  #pod information
-      metadata:
-        labels: 
-          app: frontend
-      spec:
-        containers:
-         - name: blog-frontend-container # optional
-           image: chetansingh673/blog-frontend:build-2
-           imagePullPolicy: Always
-           ports:
-            - containerPort: 8080 
+  template:  #pod information
+    metadata:
+      labels: 
+        app: frontend
+    spec:
+      containers:
+        - name: blog-frontend-container # optional
+          image: chetansingh673/blog-frontend:build-2
+          imagePullPolicy: Always
+          ports:
+           - containerPort: 8080 
