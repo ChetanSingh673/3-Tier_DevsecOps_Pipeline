@@ -11,10 +11,10 @@ spec:
   selector:
     matchLabels: 
         app: database
-    template:
-      metadata:
-        labels:
-          app: database
+  template:
+    metadata:
+      labels:
+        app: database
     spec:
       containers:
         - name: blog-db-contianer
@@ -28,5 +28,3 @@ spec:
         - name: db-storage
           persistentVolumeClaim:
              claimName: blog-ebs-pvc  # This is the pvc name 
-        
-
