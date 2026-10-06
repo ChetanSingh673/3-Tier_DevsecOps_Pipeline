@@ -23,7 +23,7 @@ spec:
             - c 
             - |
               echo "waiting for the chetan_db:5432..."
-              until nc -z chetan_db 5432; do
+              until nc -z blog-db-service 5432; do
                   echo "DB not ready, retrying in 3s.. "
                   sleep 3 
               done 
