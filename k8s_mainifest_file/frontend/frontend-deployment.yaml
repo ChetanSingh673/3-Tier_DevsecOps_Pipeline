@@ -4,7 +4,7 @@ metadata:
    name: blog-frontend
    namespace: three-tier
    labels: 
-    app: frontend 
+    app: frontend
 spec:
   replicas: 2
   selector:
