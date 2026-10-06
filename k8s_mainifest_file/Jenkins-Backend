@@ -10,7 +10,7 @@ pipeline {
     }
 
     environment {
-        IMAGE_NAME = "chetansingh673/blog-frontend"
+        IMAGE_NAME = "chetansingh673/blog-backend"
         GIT_USER   = "ChetanSingh673"
         GIT_EMAIL  = "chetan.singh673@gmail.com"
         SCANNER_HOME = tool 'sonar-scanner' 
@@ -63,7 +63,7 @@ pipeline {
 
                     withCredentials([string(credentialsId: 'dockerhub-creds', variable: 'dockerpwd')]) {                       
                         sh """
-                        docker build -t ${IMAGE_NAME}:${IMAGE_TAG} main_branch_code
+                        docker build -t ${IMAGE_NAME}:${IMAGE_TAG} backend
                         echo "$dockerpwd" | docker login -u chetansingh673 --password-stdin
                         docker push ${IMAGE_NAME}:${IMAGE_TAG}
                         """
@@ -108,11 +108,11 @@ pipeline {
                         git checkout main
                         git reset --hard origin/main
 
-                        sed -i "s|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|" main_branch_code/k8s-hostbased-https/deployment.yaml
+                        sed -i "s|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|" k8s_mainifest_file/backend/backend-deployment.yaml
 
-                        git add main_branch_code/k8s-hostbased-https/deployment.yaml
+                        git add k8s_mainifest_file/backend/backend-deployment.yaml
                         git diff --cached --quiet || git commit -m "Updated image to ${IMAGE_TAG}"
-                        git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/$GIT_USERNAME/multibranch_pipeline_ecommerce.git main
+                        git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/$GIT_USERNAME/3-Tier_DevsecOps_Pipeline.git main
                         """
                     }
                 }
