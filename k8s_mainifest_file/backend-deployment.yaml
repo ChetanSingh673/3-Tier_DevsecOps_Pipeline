@@ -20,7 +20,7 @@ spec:
           image: chetansingh673/blog-backend:build-6
           command:
             - sh
-            - c 
+            - -c 
             - |
               echo "waiting for the chetan_db:5432..."
               until nc -z blog-db-service 5432; do
