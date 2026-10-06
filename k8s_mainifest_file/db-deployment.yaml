@@ -15,15 +15,15 @@ spec:
       metadata:
         labels:
           app: database 
-    specs:
+    spec:
       containers:
         - name: blog-db-contianer
-          images: postgres:16-alpine
+          image: postgres:16-alpine
           ports:
             - containerPort: 5432
           volumeMounts:
             - name: db-storage
-              mountpath: /var/lib/postgresql/data
+              mountPath: /var/lib/postgresql/data
       volumes: 
         - name: db-storage
           persistentVolumeClaim:
