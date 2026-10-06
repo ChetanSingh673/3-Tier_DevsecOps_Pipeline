@@ -25,7 +25,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/ChetanSingh673/multibranch_pipeline_ecommerce.git'
+                git branch: 'main', url: 'https://github.com/ChetanSingh673/3-Tier_DevsecOps_Pipeline.git'
             }
         }
 
