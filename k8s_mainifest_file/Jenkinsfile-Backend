@@ -64,7 +64,7 @@ pipeline {
 
                     withCredentials([string(credentialsId: 'dockerhub-creds', variable: 'dockerpwd')]) {                       
                         sh """
-                        docker build -t ${IMAGE_NAME}:${IMAGE_TAG} backend
+                        docker build -t ${IMAGE_NAME}:${IMAGE_TAG} k8s_mainifest_file
                         echo "$dockerpwd" | docker login -u chetansingh673 --password-stdin
                         docker push ${IMAGE_NAME}:${IMAGE_TAG}
                         """
@@ -109,9 +109,9 @@ pipeline {
                         git checkout main
                         git reset --hard origin/main
 
-                        sed -i "s|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|" k8s_mainifest_file/backend/backend-deployment.yaml
+                        sed -i "s|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|" k8s_mainifest_file/backend-deployment.yaml
 
-                        git add k8s_mainifest_file/backend/backend-deployment.yaml
+                        git add k8s_mainifest_file/backend-deployment.yaml
                         git diff --cached --quiet || git commit -m "Updated image to ${IMAGE_TAG}"
                         git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/$GIT_USERNAME/3-Tier_DevsecOps_Pipeline.git main
                         """
