@@ -1,21 +1,28 @@
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
+
 metadata:
-   name: blogfrontend
-   namespace: three-tier
+  name: blog-frontend
+  namespace: three-tier
+  labels:
+    app: frontend
+
 spec:
   replicas: 2
+
   selector:
     matchLabels:
       app: frontend
-    template:  #pod information
-      metadata:
-        labels: 
-          app: frontend
-      spec:
-        containers:
-         - name: blog-frontend-container # optional
-           image: chetansingh673/blog-frontend:build-4
-           imagePullPolicy: Always
-           ports:
-            - containerPort: 8080 
+
+  template:
+    metadata:
+      labels:
+        app: frontend
+
+    spec:
+      containers:
+        - name: blog-frontend-container
+          image: chetansingh673/blog-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
