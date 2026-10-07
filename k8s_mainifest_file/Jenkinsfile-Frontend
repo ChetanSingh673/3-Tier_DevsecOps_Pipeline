@@ -109,9 +109,9 @@ pipeline {
                         git checkout main
                         git reset --hard origin/main
 
-                        sed -i "s|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|" k8s_mainifest_file/frontend-deployment.yaml
+                        sed -i "s|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|" k8s_mainifest_file/frontend/frontend-deployment.yaml
 
-                        git add k8s_mainifest_file/frontend-deployment.yaml
+                        git add k8s_mainifest_file/frontend/frontend-deployment.yaml
                         git diff --cached --quiet || git commit -m "Updated image to ${IMAGE_TAG}"
                         git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/$GIT_USERNAME/3-Tier_DevsecOps_Pipeline.git main
                         """
