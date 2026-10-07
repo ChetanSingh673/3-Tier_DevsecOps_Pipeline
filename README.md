@@ -499,7 +499,7 @@ aws configure list
 ```
 Create the User and apply the policy on it "AdministratorAccess"
 
-# 6. Create EKS Cluster and Nodegroup (Try-This)
+# 6. Create EKS Cluster and Nodegroup
 ```bash
 eksctl create cluster --name chetan-cluster2026 --region us-west-2 --version 1.33 --node-type t3.medium --nodes 2  --nodes-min 2 --nodes-max 4 --node-volume-size 30 --zones us-west-2a,us-west-2b
 ```
