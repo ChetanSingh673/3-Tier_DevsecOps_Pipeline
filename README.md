@@ -340,6 +340,7 @@ Create the Prometheus Datasource: [http://promethues-ip:9090](http://promethues-
 * kubernetes 17119 Docs: https://grafana.com/grafana/dashboards/18283-kubernetes-dashboard/
 
 # Jenkins Plugins to Install
+* NodeJS
 * Email Extension Template Plugin
 * Pipeline: Stage View Plugin
 * SonarQube Scanner for Jenkins
