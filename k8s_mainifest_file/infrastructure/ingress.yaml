@@ -24,16 +24,3 @@ spec:
                 name: blog-frontend-service
                 port:
                   number: 8080
-        
-         # 👇 Default catch-all (matches any host not listed above)
-
-    - host: ""
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: blog-frontend-service # or your default frontend
-                port:
-                  number: 8080                      
